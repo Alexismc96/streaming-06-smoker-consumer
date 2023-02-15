@@ -1,8 +1,8 @@
 # streaming-05-smart-smoker
 > Design and implement a producer for the smart smoker. 
 
-## Name: Alexis Clinton
-# Date: 14Feb23
+# Name: Alexis Clinton
+## Date: 14Feb23
 
 
 ## Before You Begin
