@@ -80,15 +80,15 @@ if __name__ == "__main__":
 
     #Define messages
     for row in reader:
-        Time, Smoker_Temp, Food_A_Temp, Food_B_Temp = row
+        Time, Channel1, Channel2, Channel3 = row
 
-        message_queue1 = (Time, Smoker_Temp)
+        message_queue1 = (Time, Channel1)
         smoker_message = ",".join(message_queue1)
         
-        message_queue2 = (Time, Food_A_Temp)
+        message_queue2 = (Time, Channel2)
         A_message = ",".join(message_queue2)
 
-        message_queue3 = (Time, Food_B_Temp)
+        message_queue3 = (Time, Channel3)
         B_message = ",".join(message_queue3)
 
         #send messages to queues
