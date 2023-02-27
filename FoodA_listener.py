@@ -38,7 +38,7 @@ def foodA_callback(ch, method, properties, body):
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
 #define a main function to run the program
-def main(hn: str = "localhost", qn: str = "02-food-A"):
+def main(hn: str = "localhost", qn: str = "02-foodA"):
     """ Continuously listen for task messages on a named queue."""
 
     #when a statement can go wrong, use a try-except block
@@ -63,7 +63,7 @@ def main(hn: str = "localhost", qn: str = "02-food-A"):
         #a durable queue will survive a RabbitMQ server restart
         #and help ensure messages are processed in order
         #messages will not be deleted until the consumer acknowledges
-        channel.queue_declare(queue='02-food-A', durable=True)
+        channel.queue_declare(queue='02-foodA', durable=True)
         #The QoS level controls the # of messages
         #that can be in-flight (unacknowledged by the consumer)
         #at any given time.
@@ -76,7 +76,7 @@ def main(hn: str = "localhost", qn: str = "02-food-A"):
         #configure the channel to listen on a specific queue,  
         #use the callback function named callback,
         #and do not auto-acknowledge the message (let the callback handle it)
-        channel.basic_consume(queue='02-food-A', auto_ack = False, on_message_callback=foodA_callback)
+        channel.basic_consume(queue='02-foodA', auto_ack = False, on_message_callback=foodA_callback)
 
         #print a message to the console for the user
         print(" [*] Ready for work. To exit press CTRL+C")
@@ -105,4 +105,4 @@ def main(hn: str = "localhost", qn: str = "02-food-A"):
 #If this is the program being run, then execute the code below
 if __name__ == "__main__":
     #call the main function with the information needed
-    main("localhost", "02-food-A")
+    main("localhost", "02-foodA")
